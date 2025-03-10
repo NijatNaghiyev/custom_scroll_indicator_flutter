@@ -10,8 +10,9 @@ This is a Flutter mobile application featuring a custom scroll indicator that dy
 - Beautiful and smooth scrolling animations
 - Clean and simple UI design
 ## Demo
-![Scroll Indicator Demo](./Screen%20Recording%202025-03-10%20at%2023.32.53.gif)
-![Another Demo](./Screen%20Recording%202025-03-10%20at%2023.22.05.gif)
+![Image](https://github.com/user-attachments/assets/e149b455-ca07-488b-8837-61ee740d0aa9)
+![Image](https://github.com/user-attachments/assets/2c9e05e9-f205-428f-a4a0-7c4d13ec29de)
+
 ## Getting Started
 ### Prerequisites
 - Flutter SDK (3.x.x or latest stable version)
@@ -54,8 +55,10 @@ lib/
 - `contact_list.dart` builds a vertically scrolling list of contact cards grouped by their starting letter.
 - `scroll_indicator.dart` tracks the scroll position and determines the current active letter.
 - The active letter is displayed alongside the custom scroll bar and updates in real-time.
+
 ## Screenshots
-![Contact List Screenshot](./Simulator%20Screenshot%20-%20iPhone%2016%20Pro%20-%202025-03-10%20at%2023.29.31%202.jpeg)
+![Image](https://github.com/user-attachments/assets/218f3499-8889-41f1-96fd-7e79e3e42b1d)
+
 ## License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 ## Contributing
