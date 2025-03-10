@@ -57,6 +57,7 @@ lib/
 
 ## Screenshots
 ![Image](https://github.com/user-attachments/assets/218f3499-8889-41f1-96fd-7e79e3e42b1d)
+![Image](https://github.com/user-attachments/assets/9403c366-f2ba-44eb-b9b7-c2fb4ae95a0d)
 
 
 ## Contributing
