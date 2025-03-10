@@ -58,8 +58,7 @@ lib/
 ## Screenshots
 ![Image](https://github.com/user-attachments/assets/218f3499-8889-41f1-96fd-7e79e3e42b1d)
 
-## License
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
 ## Contributing
 Feel free to submit issues and pull requests! Any suggestions to improve this project are welcome.
 ---
