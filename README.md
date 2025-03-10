@@ -15,10 +15,13 @@ This is a Flutter mobile application featuring a custom scroll indicator that dy
 - Dart (latest stable version)
 ### Installation
 1. Clone the repository:
+
 ```bash
-git clone https://github.com/your-username/custom-scroll-indicator.git
-cd custom-scroll-indicator
+git clone https://github.com/NijatNaghiyev/custom_scroll_indicator_flutter.git
+
+cd custom_scroll_indicator_flutter
 ```
+
 2. Install dependencies:
 ```bash
 flutter pub get
@@ -60,4 +63,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## Contributing
 Feel free to submit issues and pull requests! Any suggestions to improve this project are welcome.
 ---
-**Author:** [Your Name](https://github.com/your-username)
+**Author:** [NijatNaghiyev](https://github.com/NijatNaghiyev)
