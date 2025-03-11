@@ -9,12 +9,14 @@ class ScrollIndicator extends StatelessWidget {
     required this.offsetBarNotifier,
     required this.titleNotifier,
     required this.onDragging,
+    required this.isScrollingNotifier,
   });
 
   final ScrollController scrollController;
 
   final ValueNotifier<double> offsetBarNotifier;
   final ValueNotifier<String> titleNotifier;
+  final ValueNotifier<bool> isScrollingNotifier;
 
   final void Function(bool onDragging) onDragging;
 
@@ -26,12 +28,11 @@ class ScrollIndicator extends StatelessWidget {
     void onVerticalDragUpdate(DragUpdateDetails details) {
       final y = details.globalPosition.dy;
 
-      double interval = ((y - size.height / 4) / (size.height / 2)).clamp(0, 1);
+      double interval = ((y - (size.height / 3 - 20)) / (size.height / 2))
+          .clamp(0, 1);
 
-      scrollController.animateTo(
+      scrollController.jumpTo(
         lerpDouble(0, scrollController.position.maxScrollExtent, interval)!,
-        duration: Durations.short1,
-        curve: Curves.easeInOut,
       );
 
       offsetBarNotifier.value = (offsetBarNotifier.value +
@@ -70,38 +71,44 @@ class ScrollIndicator extends StatelessWidget {
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        ValueListenableBuilder<bool>(
-                          valueListenable:
-                              scrollController.position.isScrollingNotifier,
-                          builder: (context, isBool, _) {
-                            if (!isBool) {
-                              return const SizedBox(width: 40);
-                            }
-
-                            return Container(
-                              height: 40,
-                              width: 40,
-                              padding: const EdgeInsets.all(1),
-                              decoration: const BoxDecoration(
-                                color: Colors.blue,
-                                borderRadius: BorderRadius.only(
-                                  topLeft: Radius.circular(8),
-                                  bottomRight: Radius.circular(8),
-                                  bottomLeft: Radius.circular(8),
+                        ListenableBuilder(
+                          listenable: Listenable.merge([
+                            scrollController.position.isScrollingNotifier,
+                            isScrollingNotifier,
+                          ]),
+                          builder: (context, _) {
+                            return Visibility.maintain(
+                              visible:
+                                  scrollController
+                                      .position
+                                      .isScrollingNotifier
+                                      .value ||
+                                  isScrollingNotifier.value,
+                              child: Container(
+                                height: 40,
+                                width: 40,
+                                padding: const EdgeInsets.all(1),
+                                decoration: const BoxDecoration(
+                                  color: Colors.blue,
+                                  borderRadius: BorderRadius.only(
+                                    topLeft: Radius.circular(8),
+                                    bottomRight: Radius.circular(8),
+                                    bottomLeft: Radius.circular(8),
+                                  ),
                                 ),
-                              ),
-                              alignment: Alignment.center,
-                              child: ValueListenableBuilder<String>(
-                                valueListenable: titleNotifier,
-                                builder: (context, titleN, _) {
-                                  return Text(
-                                    titleN,
-                                    style: const TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 22,
-                                    ),
-                                  );
-                                },
+                                alignment: Alignment.center,
+                                child: ValueListenableBuilder<String>(
+                                  valueListenable: titleNotifier,
+                                  builder: (context, titleN, _) {
+                                    return Text(
+                                      titleN,
+                                      style: const TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 22,
+                                      ),
+                                    );
+                                  },
+                                ),
                               ),
                             );
                           },

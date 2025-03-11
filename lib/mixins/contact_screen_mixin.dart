@@ -13,6 +13,7 @@ mixin ContactScreenMixin on State<ContactScreen> {
 
   ValueNotifier<double> offsetBarNotifier = ValueNotifier<double>(0);
   ValueNotifier<String> titleNotifier = ValueNotifier("A");
+  ValueNotifier<bool> isScrollingNotifier = ValueNotifier(false);
 
   List<GlobalKey> globalKeyList = [];
 
@@ -38,6 +39,7 @@ mixin ContactScreenMixin on State<ContactScreen> {
   void dispose() {
     scrollController.dispose();
     offsetBarNotifier.dispose();
+    isScrollingNotifier.dispose();
     titleNotifier.dispose();
     super.dispose();
   }

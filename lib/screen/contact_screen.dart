@@ -28,9 +28,11 @@ class _ContactScreenState extends State<ContactScreen> with ContactScreenMixin {
       floatingActionButton: ScrollIndicator(
         offsetBarNotifier: offsetBarNotifier,
         scrollController: scrollController,
+        isScrollingNotifier: isScrollingNotifier,
         titleNotifier: titleNotifier,
         onDragging: (onDragging) {
           this.onDragging = onDragging;
+          isScrollingNotifier.value = onDragging;
         },
       ),
     );
